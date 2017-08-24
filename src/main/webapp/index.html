@@ -28,6 +28,7 @@
 								data-toggle="modal" class="btn btn-success"><span
 								class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
 						</h2>
+						<h2 ng-show="loading "><a class="btn btn-info"><i class="glyphicon glyphicon-repeat gly-spin"></i> Aguarde</a></h2>
 						<ul ui-sortable="sortableOptions" ng-model="list" class="list"
 							style="padding-left: 0px;">
 							<li ng-repeat="item in list" class="item alert alert-success">
@@ -96,7 +97,8 @@
 
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Cancelar</button>
-							<button type="button" class="btn btn-primary" ng-click="save()">Salvar</button>
+							<button ng-hide="loading" type="button" class="btn btn-primary" ng-click="save()">Salvar</button>
+							<h2 ng-show="loading "><a class="btn btn-info"><i class="glyphicon glyphicon-repeat gly-spin"></i> Aguarde</a></h2>
 						</div>
 					</div>
 

@@ -3,7 +3,9 @@ var taskApp = angular.module('taskApp', [ 'ui.sortable' ]);
 taskApp.controller('taskController', function($scope, $http) {
 	$scope.task = {}
 	$scope.transaction;
+	$scope.loading = false;
 	$scope.callAssync = function(methodIndex, path, data, success) {
+		$scope.loading = true;
 		var METHOD = [ "POST", "GET", "DELETE" ];
 		$scope.sending = true;
 		console.log($scope.userData);
@@ -19,11 +21,13 @@ taskApp.controller('taskController', function($scope, $http) {
 			requestData.data = data;
 		$http(requestData).then(success, function errorCallback(response) {
 			alert("Ops, houve um erro tente novamente.");
+			$scope.loading = false;
 		});
 	}
 
 	$scope.loadTasks = function() {
 		var success = function successCallback(response) {
+			$scope.loading = false;
 			$scope.list = response.data;
 		};
 		$scope.callAssync(1, "taskrest/tasklist", false, success);
@@ -33,6 +37,7 @@ taskApp.controller('taskController', function($scope, $http) {
 		console.log($scope.task);
 		delete $scope.task.$$hashKey;
 		var success = function successCallback(response) {
+			$scope.loading = false;
 			$scope.list = response.data;
 			$('#modal-form').modal({
 				show : 'false'
@@ -55,6 +60,7 @@ taskApp.controller('taskController', function($scope, $http) {
 		if (remove) {
 			var success = function successCallback(response) {
 				$scope.list = response.data;
+				$scope.loading = false;
 				location.reload();
 			};
 			$scope.callAssync(2, "taskrest/remove", item, success);
