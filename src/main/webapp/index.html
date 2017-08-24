@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Bem vindo!!!</title>
+
+<meta name="description"
+	content="Source code generated using layoutit.com">
+<meta name="author" content="LayoutIt!">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body ng-app="taskApp" ng-controller="taskController">
+
+	<div class="container-fluid">
+		<div class="row userRow">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="thanks">
+					<div class="jumbotron">
+						<h2>
+							TODO list <a href="#modal-form" ng-click="task ={};transaction = 0" role="button"
+								data-toggle="modal" class="btn btn-success"><span
+								class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+						</h2>
+						<ul ui-sortable="sortableOptions" ng-model="list" class="list"
+							style="padding-left: 0px;">
+							<li ng-repeat="item in list" class="item alert alert-success">
+								<a href="#modal-form" ng-click="edit(item)" role="button"
+								data-toggle="modal" class="btn btn-info"><span
+									style="font-weight: 400" class="glyphicon glyphicon-info-sign"
+									aria-hidden="true"></span></a> <a ng-click="deleteItem(item)" class="btn btn-danger"><span
+									style="font-weight: 400" 
+									class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a>
+								<br> Tarefa:{{item.title}}<br> <span>Tarefa
+									concluida <span ng-show="!item.status"
+									class="glyphicon glyphicon-unchecked" aria-hidden="true">
+								</span> <span ng-show="item.status" class="glyphicon glyphicon-check"
+									aria-hidden="true"></span>
+
+							</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+			<div class="modal fade" id="modal-form" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">Tarefa</h4>
+						</div>
+						<div class="modal-body">
+
+							<form role="form">
+								<div class="form-group">
+									<p>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Titulo</span>
+										<input ng-model="task.title" class="form-control"
+											id="basic-url" aria-describedby="basic-addon3" maxlength="100">
+									</div>
+									</p>
+									<p>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Descrição</span>
+										<input ng-model="task.description" class="form-control"
+											id="basic-url" aria-describedby="basic-addon3" maxlength="200">
+									</div>
+									</p>
+									<p>
+									<div class="input-group">
+										<span class="input-group-addon" id="basic-addon3">Concluído</span>
+										<span class="input-group-addon"> <input
+											ng-model="task.status" type="checkbox"
+											aria-label="Checkbox for following text input">
+										</span>
+
+									</div>
+									</p>
+								</div>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" ng-click="save()">Salvar</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="js/ui-sortable.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/scripts.js"></script>
+
+</body>
+</html>

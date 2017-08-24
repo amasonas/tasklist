@@ -1,0 +1,58 @@
+
+.hideElem{
+    display: none;
+}
+.scoreShow{
+    float: right;
+}
+label{
+    width: 100%;
+}
+.userRow{
+    padding-top: 50px;
+}
+.jumbotron{
+    background-color: lightblue !important;
+}
+
+
+
+.list {
+	list-style: none outside none;
+	width: 100%;
+}
+
+.item {
+	width: 100%;
+
+	margin: 5px 0;
+	border: 2px solid #444;
+	border-radius: 5px;
+
+
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: left;
+	cursor: move;
+}
+
+
+/***  Extra ***/
+
+body {
+	font-family: Verdana, 'Trebuchet ms', Tahoma;
+}
+
+
+
+h2 {
+	text-align: center;
+}
+
+.floatleft {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
