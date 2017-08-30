@@ -34,7 +34,7 @@ public class TaskRest {
 		try {
 			return "task id " + task.getId();
 		} catch (Exception e) {
-			return "deu pau";
+			return "error";
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class TaskRest {
 		try {
 			return "task id " + task.getId();
 		} catch (Exception e) {
-			return "deu pau";
+			return "error";
 		}
 	}
 	
